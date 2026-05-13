@@ -28,7 +28,7 @@ Environment=BATTERY_DIVIDER_RATIO=2.0
 Environment=BATTERY_VOLTAGE_CAL=1.0
 
 # 2S paket gerilimine eklenecek sabit düzeltme.
-Environment=BATTERY_VOLTAGE_OFFSET_V=0.42
+Environment=BATTERY_VOLTAGE_OFFSET_V=0.92
 
 # 2S Li-ion yaklaşık eşikleri
 Environment=BATTERY_PACK_EMPTY_V=6.40
