@@ -109,7 +109,7 @@ Bu yöntem coulomb-counting değildir. Gerilim tabanlı yaklaşık göstergedir.
 ## Kurulum
 
 ```bash
-git clone https://github.com/KULLANICI_ADIN/aysua-battery-api.git
+git clone https://github.com/abdullahdogan/aysua-battery-api.git
 cd aysua-battery-api
 chmod +x install_battery_api.sh
 sudo bash install_battery_api.sh
