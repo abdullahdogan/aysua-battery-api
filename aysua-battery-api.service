@@ -1,0 +1,43 @@
+[Unit]
+Description=Aysua MAX17048/BQ25792 Battery API
+After=multi-user.target
+Wants=multi-user.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/aysua-battery-api
+ExecStart=/usr/bin/python3 /opt/aysua-battery-api/aysua_battery_api.py
+Restart=always
+RestartSec=2
+
+Environment=BATTERY_API_HOST=127.0.0.1
+Environment=BATTERY_API_PORT=8095
+
+# MAX17048 ve BQ25792 hangi I2C bus'taysa onu yaz.
+# Örn: Environment=BATTERY_I2C_BUS=10
+Environment=BATTERY_I2C_BUS=1
+
+Environment=MAX17048_ADDR=0x36
+Environment=BQ25792_ADDR=0x6B
+
+# 15k/15k bölücü için 2.0
+Environment=BATTERY_DIVIDER_RATIO=2.0
+
+# Çarpan kalibrasyonu. Genellikle 1.0 bırakılır.
+Environment=BATTERY_VOLTAGE_CAL=1.0
+
+# 2S paket gerilimine eklenecek sabit düzeltme.
+Environment=BATTERY_VOLTAGE_OFFSET_V=0.42
+
+# 2S Li-ion yaklaşık eşikleri
+Environment=BATTERY_PACK_EMPTY_V=6.40
+Environment=BATTERY_PACK_FULL_V=8.40
+
+# BQ25792 şarj durum alanı: REG 0x1C, bit 5-7
+Environment=BQ_CHG_STATUS_REG=0x1C
+Environment=BQ_CHG_STATUS_SHIFT=5
+Environment=BQ_CHG_STATUS_MASK=0x07
+
+[Install]
+WantedBy=multi-user.target
